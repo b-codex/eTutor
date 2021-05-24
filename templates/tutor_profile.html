@@ -1,0 +1,367 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="{{ url_for('static', filename='vendor/bootstrap/css/bootstrap.min.css')}}" rel="stylesheet">
+    <link href="{{ url_for('static', filename='vendor/icofont/icofont.min.css')}}" rel="stylesheet">
+    <link href="{{ url_for('static', filename='vendor/boxicons/css/boxicons.min.css')}}" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-wEmeIV1mKuiNpC+IOBjI7aAzPcEZeedi5yW5f2yOq55WWLwNGmvvx4Um1vskeMj0" crossorigin="anonymous">
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700" rel="stylesheet">
+    <link rel=stylesheet type=text/css href="{{ url_for('static', filename='css/tutorProfile.css') }}">
+
+    <link href="https://api.mapbox.com/mapbox-gl-js/v2.2.0/mapbox-gl.css" rel="stylesheet">
+    <link rel="stylesheet" href="{{ url_for('static', filename='/css/font-awesome.min.css')}}">
+    <link href="{{ url_for('static', filename='css/style.css')}}" rel="stylesheet">
+  
+    <title>Document</title>
+    <style>
+        #coord {
+            display: none;
+        }
+
+        .coordinates {
+            background: rgba(0, 0, 0, 0.5);
+            color: #fff;
+            position: absolute;
+            bottom: 40px;
+            left: 10px;
+            padding: 5px 10px;
+            margin: 0;
+            font-size: 11px;
+            line-height: 18px;
+            border-radius: 3px;
+            display: none;
+        }
+
+        #map {
+            width: 100%;
+            height: 400px;
+        }
+        .dropbtn {
+        background-color: transparent;
+  color: #fff;
+  
+  font-size: 16px;
+  border: none;
+  cursor: pointer;
+}
+
+.dropbtn:hover, .dropbtn:focus {
+  background-color: #2980B9;
+}
+
+.dropdown {
+  position: relative;
+  display: inline-block;
+}
+
+.dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: #f1f1f1;
+  min-width: 160px;
+  overflow: auto;
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  z-index: 1;
+  margin-top: 40px;
+}
+
+.dropdown-content a {
+  color: black;
+  padding: 12px 16px;
+  text-decoration: none;
+  display: block;
+}
+
+.dropdown a:hover {background-color: #ddd;}
+
+.show {display: block;}
+    </style>
+</head>
+
+<body>
+    <div class="main-content">
+        <!-- Top navbar -->
+        <nav class="navbar navbar-top navbar-expand-md navbar-dark" id="navbar-main">
+            <div class="container-fluid">
+                <!-- Brand -->
+                <a class="h4 mb-0 text-white text-uppercase  d-inline-block"
+                    href="#" >Tutor profile</a>
+                <!-- Form -->
+               
+                <!-- User -->
+                <ul class="navbar-nav align-items-center d-flex">
+                        <div class="dropdown d-flex">
+                            <div class="avatar avatar-sm rounded-circle" style="margin-right: 0.5rem;">
+                                <img alt="Image placeholder"
+                                    src="https://demos.creative-tim.com/argon-dashboard/assets/img/theme/team-4.jpg">
+                            </div>
+                        <button onclick="myFunction()" class="dropbtn">Dropdown</button>
+                        <div id="myDropdown" class="dropdown-content">
+                            <a href="profile_edit.html">Edit</a>
+                            <a href="#contact">Log Out</a>
+                        </div>
+                        </div>
+                </ul>
+            </div>
+        </nav>
+        <!-- Header -->
+        <div class="header pb-8 pt-5 pt-lg-8 d-flex align-items-center" style="min-height: 100px; background-color: #308B9F !important;" >
+            <!-- Mask -->
+            <span class=""></span>
+            <!-- Header container -->
+
+        </div>
+        <!-- Page content -->
+        <div class="container-fluid mt-3">
+            <div class="row">
+
+                <div class="col-xl-4 order-xl-1 mb-5 mb-xl-0">
+                    <div class="card card-profile shadow">
+                        <div class="row justify-content-center">
+                            <div class="col-lg-3 order-lg-2">
+                                <div class="card-profile-image">
+                                    <a href="#">
+                                        <img src="data:image/jpeg;base64,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"
+                                            class="rounded-circle">
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="card-header text-center border-0 pt-8 pt-md-4 pb-0 pb-md-4">
+                            <div class="d-flex justify-content-between">
+                                <!-- <a href="#" class="btn btn-sm btn-info mr-4">Log out</a> -->
+                                <a href="profile_edit.html" class="btn btn-sm btn-default float-right" style="background-color:#308B9F;">Edit profile</a>
+                            </div>
+                        </div>
+                        <div class="card-body pt-0 pt-md-4">
+                           <div class="text-center  mt-md-5">
+                                <h3>
+                                    {{p["name"]}}<span class="font-weight-light">, 27</span>
+                                </h3>
+                                <div class="h5 font-weight-300">
+                                    <i class="ni location_pin mr-2"></i> {{p["address"]}}
+                                </div>
+                                <div class="h5 mt-4">
+                                    <i class="ni business_briefcase-24 mr-2"></i> {{p["bio"]}}
+                                </div>
+                                <div>
+                                    <i class="ni education_hat mr-2"></i> {{p["bio"]}}
+                                </div>
+                                <hr class="my-4">
+                                <p>Ryan — the name taken by Melbourne-raised, Brooklyn-based Nick Murphy — writes,
+                                    performs and records all of his own music.</p>
+                                <!-- <a href="#">Show </a> -->
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+                <div class="col-xl-8 order-xl-2">
+                    <div class="card bg-secondary shadow">
+                        <div class="card-header bg-white border-0">
+                            <div class="row align-items-center">
+                                <div class="col-8">
+                                    <h3 class="mb-0">My account</h3>
+                                </div>
+                                <!-- <div class="col-4 text-right">
+                                    <a href="#!" class="btn btn-sm btn-primary">Settings</a>
+                                </div> -->
+                            </div>
+                        </div>
+                        <div class="card-body">
+                            {% if suggestion %}
+                            {% for tutor in suggestion%}
+                            <div>{{tutor}}</div>
+                            {% endfor %}
+                            {% endif %}
+
+                            {% if not suggestion %}
+                            <form action="/parentprofile" method="POST">
+
+
+                                <div class="row my-4">
+                                    <div class="col h4">
+                                        <label for="exampleFormControlInput1">Currently Enrolled Works</label>
+                                    </div>
+                                </div>
+
+                                <div class="row mb-2">
+
+                                    <div class="col-md-4 mb-4">
+                                        <div class="card p-4">
+                                          <div class="card-block">
+                                            <h4 class="card-title">Card title</h4>
+                                            <h6 class="card-subtitle text-muted">Support card subtitle</h6>
+                                            <p class="card-text p-y-1">Some quick example text to build on the card title .</p>
+                                          
+                                          </div>
+                                        </div>
+                                      </div>
+                                      <div class="col-md-4 mb-4">
+                                        <div class="card p-4">
+                                          <div class="card-block">
+                                            <h4 class="card-title">Card title</h4>
+                                            <h6 class="card-subtitle text-muted">Support card subtitle</h6>
+                                            <p class="card-text p-y-1">Some quick example text to build on the card title .</p>
+                                          
+                                          </div>
+                                        </div>
+                                      </div>
+                                      <div class="col-md-4 mb-4">
+                                        <div class="card p-4">
+                                          <div class="card-block">
+                                            <h4 class="card-title">Card title</h4>
+                                            <h6 class="card-subtitle text-muted">Support card subtitle</h6>
+                                            <p class="card-text p-y-1">Some quick example text to build on the card title .</p>
+                                          
+                                          </div>
+                                        </div>
+                                      </div>
+                                      <div class="col-md-4mb-4">
+                                        <div class="card p-4">
+                                          <div class="card-block">
+                                            <h4 class="card-title">Card title</h4>
+                                            <h6 class="card-subtitle text-muted">Support card subtitle</h6>
+                                            <p class="card-text p-y-1">Some quick example text to build on the card title .</p>
+                                          
+                                          </div>
+                                        </div>
+                                      </div>
+                                <div class="row mb-3">
+
+                                </div>
+                                <!-- hidden coordinate input -->
+                                <input id="coord" type="text" name="coordinates">
+                                <!-- end -->
+                                <!-- <div class="row">
+                                    <div class="col text-center">
+                                        <div class="text-center"><button class="btn btn-primary btn-lg mt-3" style="background-color:#308B9F;"
+                                                type="submit">Search with details</button>
+                                        </div>
+                                    </div>
+                                </div> -->
+                            </form>
+                            {% endif %}
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="test">
+        {{x}}
+    </div>
+
+    <!-- Button trigger modal -->
+  
+
+    
+  <!-- ======= Footer ======= -->
+  <footer id="footer" class="section-bg"style="position: absolute; bottom: -12em; width:100%;">
+    <div class="d-flex justify-content-center container footer-bottom clearfix">
+      <div class="copyright">
+        &copy; Copyright <strong><span>Temaribet</span></strong>. All Rights Reserved
+      </div>
+      <div class="credits">
+       </div>
+    </div>
+  </footer><!-- End Footer -->
+
+
+  
+
+    <script>
+        /* When the user clicks on the button, 
+        toggle between hiding and showing the dropdown content */
+        function myFunction() {
+          document.getElementById("myDropdown").classList.toggle("show");
+        }
+        
+        // Close the dropdown if the user clicks outside of it
+        window.onclick = function(event) {
+          if (!event.target.matches('.dropbtn')) {
+            var dropdowns = document.getElementsByClassName("dropdown-content");
+            var i;
+            for (i = 0; i < dropdowns.length; i++) {
+              var openDropdown = dropdowns[i];
+              if (openDropdown.classList.contains('show')) {
+                openDropdown.classList.remove('show');
+              }
+            }
+          }
+        }
+        </script>
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
+        integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous">
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-p34f1UUtsS3wqzfto5wAAmdvj+osOnFyQFpp4Ua3gs/ZVWx6oOypYoCJhGGScy+8" crossorigin="anonymous">
+    </script>
+
+    <script src="https://api.mapbox.com/mapbox-gl-js/v2.2.0/mapbox-gl.js"></script>
+
+    <script src="{{ url_for('static', filename='js/geolocate.js') }}"></script>
+    <script>
+        $(document).ready(function () {
+            $(".mul-select").select2({
+                placeholder: "Select Subject", //placeholder
+                tags: true,
+                tokenSeparators: ['/', ',', ';', " "]
+            });
+        })
+
+        mapboxgl.accessToken =
+            'pk.eyJ1IjoieW9uaW1lcmtlYnUiLCJhIjoiY2tsM2dsYmsxMW1lNTJzcW8ybDM0eGtnbCJ9._Gb2Fd84O3SO2-LgHIICpw';
+
+        var coordinates = document.getElementById('coordinates');
+        var map = new mapboxgl.Map({
+            container: 'map',
+            style: 'mapbox://styles/mapbox/streets-v11',
+            center: [38.7679, 8.99],
+            zoom: 10
+        });
+
+        $('#cl').on('shown.bs.modal', function () {
+            map.invalidateSize();
+        });
+
+        var marker = new mapboxgl.Marker({
+                draggable: true
+            })
+            .setLngLat([38.7679, 8.99])
+            .addTo(map);
+
+        function onDragEnd() {
+            var lngLat = marker.getLngLat();
+            coordinates.style.display = 'block';
+            coordinates.innerHTML =
+                lngLat.lng + ', ' + lngLat.lat;
+        }
+
+        marker.on('dragend', onDragEnd);
+
+
+        $(function() {
+  var profile = $('.profile');
+  var profiledropdown = $('.profiledropdown');
+  profile.on('click', function() {
+    if (profiledropdown.hasClass('fade')) {
+      profiledropdown.removeClass('fade').addClass('fade_reverse');
+    } else if (profiledropdown.hasClass('fade_reverse')) {
+      profiledropdown.removeClass('fade_reverse').addClass('fade');
+    } else {
+      profiledropdown.addClass('fade');
+    }
+    // profiledropdown.toggleClass('fade');
+  });
+});
+    </script>
+
+</body>
+
+</html>

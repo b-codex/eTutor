@@ -1,0 +1,5 @@
+Pyrebase4==4.4.3
+firebase_admin==5.0.0
+Flask==1.1.2
+Pillow==8.2.0
+

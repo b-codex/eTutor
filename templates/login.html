@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta content="width=device-width, initial-scale=1.0" name="viewport">
+
+  <title>Temaribet</title>
+  <meta content="" name="description">
+  <meta content="" name="keywords">
+
+  <!-- Favicons -->
+  <link href="{{ url_for('static', filename='img/logo/Just-ask-2-150x150-removebg-preview.png')}}" rel="icon">
+  <link href="{{ url_for('static', filename='img/logo/Just-ask-2-150x150-removebg-preview.png')}}"
+    rel="apple-touch-icon">
+
+  <!-- Google Fonts -->
+  <link
+    href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Jost:300,300i,400,400i,500,500i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i"
+    rel="stylesheet">
+
+  <!-- Bootstraps -->
+  <!-- <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous"> -->
+  <!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script> -->
+  <!-- <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.8.1/css/bootstrap-select.css"> -->
+
+
+  <!-- Vendor CSS Files -->
+  <link href="{{ url_for('static', filename='vendor/bootstrap/css/bootstrap.min.css')}}" rel="stylesheet">
+  <link href="{{ url_for('static', filename='vendor/icofont/icofont.min.css')}}" rel="stylesheet">
+  <link href="{{ url_for('static', filename='vendor/boxicons/css/boxicons.min.css')}}" rel="stylesheet">
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/font-awesome.min.css')}}">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.0/css/select2.min.css">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.8.1/css/bootstrap-select.css">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.8.1/js/bootstrap-select.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
+
+
+  <!-- Template Main CSS File -->
+  <link rel="stylesheet" href="{{ url_for('static', filename='/css/font-awesome.min.css')}}">
+  <link href="{{ url_for('static', filename='css/style.css')}}" rel="stylesheet">
+
+  <style>
+    #header {
+      background-color: #308B9F !important;
+    }
+
+
+    body {
+      background: whitesmoke;
+      font-family: 'Open Sans', sans-serif;
+      /* height: 100rem !important; */
+    }
+
+    .sign-up {
+      text-align: center;
+      padding: 20px 0 0;
+    }
+
+    footer {
+      position: fixed;
+      left: 0;
+      bottom: 0;
+      width: 100%;
+      background-color: red;
+      color: white;
+      text-align: center;
+    }
+  </style>
+
+
+</head>
+
+<body>
+
+
+  <header id="header" class="fixed-top">
+    <div class="container d-flex align-items-center">
+
+      <a href="/home" class="logo"><img src="assets/img/logo/Just-ask-2-150x150-removebg-preview.png" alt=""
+          class="img-fluid rounded"></a>
+
+      <h1 class="mr-auto ml-1"><a class="text-white" href="/home">Temaribet</a></h1>
+      <nav class="nav-menu d-none d-lg-block">
+        <ul>
+          <li class="active"><a href="/home">Home</a></li>
+          <li><a href="/home">Services</a></li>
+          <li class="drop-down"><a href="#">Register</a>
+            <ul>
+              <li><a href="/home">Register As Student</a></li>
+              <li><a href="/signup">Register As A Tutor</a></li>
+            </ul>
+          </li>
+          <li><a href="/home">About Us</a></li>
+          <li><a href="/home">Contact Us</a></li>
+
+        </ul>
+      </nav><!-- .nav-menu -->
+
+    </div>
+  </header><!-- End Header -->
+
+
+
+  <!-- REGISTRATION SECTION START -->
+
+  <div class="row">
+    <div class="col-md-3"></div>
+
+    <div class="col-md-6">
+      <section id="register" class="portfolio section-bg" style="margin-top: 10rem; margin-bottom: 16rem;">
+        <div class="container php-email-form d-flex flex-column" data-aos="fade-up">
+
+          <div class="section-title">
+            <h2>Login</h2>
+            <!-- <p>This is a registration form for our Tutors.</p> -->
+          </div>
+
+          <form action="/loginRes" method="post" class="text-center justify-content-center">
+            <div class="row justify-content-center">
+              {% with messages = get_flashed_messages() %}
+              {% if messages %}
+              {% for msg in messages %}
+
+              <p class="" style="color: rgb(185, 87, 87)">{{msg}}</p>
+              {%endfor%}
+              {%endif%}
+              {%endwith%}
+            </div>
+            <div class="row mb-3">
+
+              <div class="col-md-3"></div>
+              <div class="col-md-6  mb-3">
+                <input type="email" name="email" placeholder="email" class="form-control form-control-lg" id="name"
+                  data-rule="minlen:4" data-msg="Please enter at least 4 chars" />
+              </div>
+              <div class="col-md-3"></div>
+              <div class="col-md-3"></div>
+
+              <div class="col-md-6">
+                <small>
+                  <a href="#" style="float:right;font-size:12px; margin-bottom: .5rem;">Forgot password?</a>
+                </small>
+                <input type="password" name="password" placeholder="Password" class="form-control form-control-lg"
+                  id="name" data-rule="minlen:4" data-msg="Please enter at least 4 chars" />
+              </div>
+
+              <div class="col-md-6">
+
+              </div>
+            </div>
+            <div class="row">
+              <div class="col text-center">
+                <input type="submit" class="btn btn-info btn-lg mt-3" value="Login" />
+              </div>
+
+            </div>
+        </div>
+
+        <div class="sign-up">
+          Don't have an account? <a href="/signup">Create One</a>
+        </div>
+        </form>
+    </div>
+    </section>
+  </div>
+  <div class="col-md-3"></div>
+  </div>
+  <!-- REGISTRATION PAGE END -->
+  <!-- End #main -->
+
+  <!-- ======= Footer ======= -->
+  <footer id="footer" class="section-bg">
+
+    <!-- Footer removed -->
+    </div>
+
+    <div class="d-flex justify-content-center container footer-bottom clearfix">
+      <div class="copyright">
+        &copy; Copyright <strong><span>Temaribet</span></strong>. All Rights Reserved
+      </div>
+      <div class="credits">
+      </div>
+    </div>
+  </footer><!-- End Footer -->
+
+  <div id="preloader"></div>
+
+  <!-- Vendor JS Files -->
+  <script type="text/javascript" src="{{ url_for('static', filename='js/login.js') }}"></script>
+  <!--  -->
+  <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+    integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous">
+  </script>
+  <script src="{{ url_for('static', filename='vendor/jquery/jquery.min.js')}}"></script>
+  <script src="{{ url_for('static', filename='vendor/bootstrap/js/bootstrap.bundle.min.js')}}"></script>
+  <script src="{{ url_for('static', filename='vendor/jquery.easing/jquery.easing.min.js')}}"></script>
+
+  <script src="{{ url_for('static', filename='js/main.js')}}"></script>
+
+
+  <!-- Template Main JS File -->
+  <script src="assets/js/main.js"></script>
+
+  <script>
+    $(document).ready(function () {
+      $(".mul-select").select2({
+        placeholder: "Select Subject", //placeholder
+        tags: true,
+        tokenSeparators: ['/', ',', ';', " "]
+      });
+    })
+
+
+
+    function readURL(input) {
+      if (input.files && input.files[0]) {
+        var reader = new FileReader();
+        reader.onload = function (e) {
+          $('#imagePreview').css('background-image', 'url(' + e.target.result + ')');
+          $('#imagePreview').hide();
+          $('#imagePreview').fadeIn(650);
+        }
+        reader.readAsDataURL(input.files[0]);
+      }
+    }
+    $("#imageUpload").change(function () {
+      readURL(this);
+    });
+  </script>
+
+</body>
+
+</html>

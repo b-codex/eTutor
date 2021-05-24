@@ -1,0 +1,696 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta content="width=device-width, initial-scale=1.0" name="viewport">
+
+  <title>Temaribet</title>
+  <meta content="" name="description">
+  <meta content="" name="keywords">
+
+  <!-- Favicons -->
+  <link href="{{ url_for('static', filename='img/logo/Just-ask-2-150x150-removebg-preview.png')}}" rel="icon">
+  <link href="{{ url_for('static', filename='img/logo/Just-ask-2-150x150-removebg-preview.png')}}"
+    rel="apple-touch-icon">
+
+  <!-- Google Fonts -->
+  <link
+    href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Jost:300,300i,400,400i,500,500i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i"
+    rel="stylesheet">
+
+  <!-- Vendor CSS Files -->
+  <link href="{{ url_for('static', filename='vendor/bootstrap/css/bootstrap.min.css')}}" rel="stylesheet">
+  <link href="{{ url_for('static', filename='vendor/icofont/icofont.min.css')}}" rel="stylesheet">
+  <link href="{{ url_for('static', filename='vendor/boxicons/css/boxicons.min.css')}}" rel="stylesheet">
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/font-awesome.min.css')}}">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.0/css/select2.min.css">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.8.1/css/bootstrap-select.css">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.8.1/js/bootstrap-select.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
+
+
+  <!-- Template Main CSS File -->
+  <link rel="stylesheet" href="{{ url_for('static', filename='/css/font-awesome.min.css')}}">
+  <link href="{{ url_for('static', filename='css/style.css')}}" rel="stylesheet">
+  <style>
+    .mul-select {
+      width: 100%;
+    }
+
+    .selectpicker {}
+  </style>
+
+
+</head>
+
+<body>
+
+
+  <header id="header" class="fixed-top">
+    <div class="container d-flex align-items-center">
+
+      <a href="home" class="logo"><img src="{{ url_for('static' ,filename='img/logo/logo.png')}}" alt=""
+          class="img-fluid rounded"></a>
+
+      <h1 class="mr-auto ml-1"><a class="text-white" href="home">Temaribet</a></h1>
+      <nav class="nav-menu d-none d-lg-block">
+        <ul>
+          <li class="active"><a href="home">Home</a></li>
+          <li><a href="#services">Services</a></li>
+
+          <li class="drop-down"><a href="#register">Register</a>
+            <ul>
+              <!-- <li><a href="#register">Register As Student</a></li> -->
+              <li><a href="/signup">Register As A Tutor</a></li>
+            </ul>
+          </li>
+          <li><a href="#about">About Us</a></li>
+          <li><a href="#contact">Contact Us</a></li>
+
+        </ul>
+      </nav><!-- .nav-menu -->
+    </div>
+  </header><!-- End Header -->
+
+  <section id="hero" class="d-flex align-items-center">
+
+    <div class="container">
+      <div class="primary-overlay">
+
+        <div class="row justify-content-around">
+          <div class="col-lg-10 d-flex flex-column justify-content-center pt-4 pt-lg-0 order-2 order-lg-1 hero-text"
+            data-aos="fade-up" data-aos-delay="200">
+            <h1>We Make Learning Fun </h1>
+            <h2>temaribet: a tutoring service providing company</h2>
+            <div class="row justify-content-center">
+              <div class="col-auto p-5 hero-btn">
+                <a href="#register" class="btn btn-dark btn-lg p-20">Get A Tutor</a>
+              </div>
+              <div class="col-auto ml-auto"></div>
+            </div>
+
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ======= Why choice us Section ======= -->
+
+  <section id="services" class="services section-bg" style="margin-bottom: -5em;">
+    <div class="container" data-aos="fade-up">
+
+      <div class="section-title">
+        <h2>Who are we?</h2>
+        <p></p>
+      </div>
+      <div class="row">
+        <div class="col-xl-4 col-md-6 d-flex align-items-stretch mt-4 mt-md-0" data-aos="zoom-in" data-aos-delay="200">
+          <div class="icon-box">
+            <div class="icon text-center"><img src="{{url_for('static', filename='img/icons/idea (1).png')}}" alt=""
+                class="w-25 img-fluid"></div>
+            <h4>
+              <h2 href="" class="text-center" style="margin-bottom: 1.5em;">what we are? </h2>
+            </h4>
+            <p>Temaribet is a tutor-providing company, with a vision of helping
+              students discover the pleasure of learning. We recruit, train, and
+              place competent campus students as a tutor. </p>
+          </div>
+        </div>
+
+        <div class="col-xl-4 col-md-6 d-flex align-items-stretch mt-4 mt-xl-0" data-aos="zoom-in" data-aos-delay="300">
+          <div class="icon-box">
+            <div class="icon text-center"><img src="{{url_for('static', filename='img/icons/trust.png')}}" alt=""
+                class="w-25 img-fluid"></div>
+            <h4>
+              <h2 href="" class="text-center">Our beliefs and values</h2>
+            </h4>
+            <p>We believe students will come to experience the pleasure of learning if they
+              are tutored in an engaging, interesting, and natural way. And once they have
+              experienced that pleasure of learning they will be a lifelong. </p>
+          </div>
+        </div>
+
+        <div class="col-xl-4 col-md-6 d-flex align-items-stretch mt-4 mt-xl-0" data-aos="zoom-in" data-aos-delay="400">
+          <div class="icon-box">
+            <div class="icon text-center"><img src="{{url_for('static', filename='img/icons/team.png')}}" alt=""
+                class="w-25 img-fluid"></div>
+            <h4>
+              <h2 href="" class="text-center" style="margin-bottom: 1.5em;">Our vision</h2>
+            </h4>
+            <p>Is to create a generation of high-achieving students, who love learning, know the pleasure of it.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="row justify-content-end">
+        <div class="col-auto mr-auto"></div>
+
+        <div class="col-auto p-5">
+
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+
+  <!--  SERVICES SECTION STARTED -->
+  <section id="services" class="services section-bg">
+    <div class="container" data-aos="fade-up">
+
+      <div class="section-title">
+        <h2>Services</h2>
+        <p>We provide tutoring services on multiple subjects, inluding subjects that are under art, language, and
+          Technologhy.</p>
+      </div>
+
+      <div class="row">
+        <div class="col-lg-12 d-flex align-items-stretch">
+          <div class="icon-boxes d-flex flex-column justify-content-center">
+            <div class="row">
+              <div class="col-xl-4 d-flex align-items-stretch">
+                <div class="icon-box mt-4 mt-xl-0 text-center">
+                  <div class=""><img src="{{url_for('static', filename='img/icons/books-stack-of-three.png')}}" alt=""
+                      class="img-fluid w-25 mb-3">
+                    <h4>Main Subjects</h4>
+                  </div>
+                  <p>Maths, Physics, Biology, History, Geography, English, Programming ....</p>
+                </div>
+              </div>
+              <div class="col-xl-4 d-flex align-items-stretch">
+                <div class="icon-box mt-4 mt-xl-0 text-center">
+                  <div class=""><img src="{{url_for('static', filename='img/icons/paint-palette.png')}}" alt=""
+                      class="img-fluid w-25 mb-3">
+                    <h4>Art</h4>
+                  </div>
+                  <p>Drawing, Music Drawing, Music, Drawing, Music, Drawing, Music</p>
+                </div>
+              </div>
+              <div class="col-xl-4 d-flex align-items-stretch">
+                <div class="icon-box mt-4 mt-xl-0 text-center">
+                  <div class=""><img src="{{url_for('static', filename='img/icons/project-management.png')}}" alt=""
+                      class="img-fluid w-25 mb-3">
+                    <h4>Technology</h4>
+                  </div>
+                  <p>Computer programming, Applicaiton Development, Website Development </p>
+                </div>
+              </div>
+            </div>
+          </div><!-- End .content-->
+        </div>
+
+      </div>
+      <div class="row justify-content-end">
+        <div class="col-auto mr-auto"></div>
+
+        <div class="col-auto p-5">
+          <!-- <a href="#register" class="btn btn-dark btn-tutor btn-lg p-2 align-self-end">Get A Tutor</a> -->
+        </div>
+      </div>
+    </div>
+  </section>
+  <!-- SERVICES SECTION END -->
+
+  <!-- ======= Testimonial Section ======= -->
+  <section id="team" class="team">
+    <div class="container" data-aos="fade-up">
+
+      <div class="section-title">
+        <h2>Testimonial</h2>
+        <p>This is the testimonial of Parent which have be working with us and benefited from our platform.</p>
+      </div>
+
+      <div class="row">
+
+        <div class="col-lg-6">
+          <div class="member d-flex align-items-start" data-aos="zoom-in" data-aos-delay="100">
+            <div class="pic"><img src="{{url_for('static', filename='img/team/team-1.jpg')}}" class="img-fluid" alt="">
+            </div>
+            <div class="member-info">
+              <h4>Walter White</h4>
+              <p>Explicabo voluptatem mollitia et repellat qui dolorum quasi</p>
+
+            </div>
+          </div>
+        </div>
+
+        <div class="col-lg-6 mt-4 mt-lg-0">
+          <div class="member d-flex align-items-start" data-aos="zoom-in" data-aos-delay="200">
+            <div class="pic"><img src="{{url_for('static', filename='img/team/team-2.jpg')}}" class="img-fluid" alt="">
+            </div>
+            <div class="member-info">
+              <h4>Sarah Jhonson</h4>
+              <p>Aut maiores voluptates amet et quis praesentium qui senda para</p>
+
+            </div>
+          </div>
+        </div>
+
+        <div class="col-lg-6 mt-4">
+          <div class="member d-flex align-items-start" data-aos="zoom-in" data-aos-delay="300">
+            <div class="pic"><img src="{{url_for('static', filename='img/team/team-3.jpg')}}" class="img-fluid" alt="">
+            </div>
+            <div class="member-info">
+              <h4>William Anderson</h4>
+              <p>Quisquam facilis cum velit laborum corrupti fuga rerum quia</p>
+
+            </div>
+          </div>
+        </div>
+
+        <div class="col-lg-6 mt-4">
+          <div class="member d-flex align-items-start" data-aos="zoom-in" data-aos-delay="200">
+            <div class="pic"><img src="{{url_for('static', filename='img/team/team-4.jpg')}}" class="img-fluid" alt="">
+            </div>
+            <div class="member-info">
+              <h4>Amanda Jepson</h4>
+              <p>Dolorum tempora officiis odit laborum officiis et et accusamus</p>
+
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+  </section><!-- End Team Section -->
+
+  <section id="register" class="portfolio section-bg pt-5">
+    <div class="container php-email-form" data-aos="fade-up">
+
+      <div class="section-title">
+        <h2>Register</h2>
+        <p>This is a registration form for parents to be our client.</p>
+      </div>
+      {% if success %}
+      <div class="alert alert-success" role="alert">
+        {{success}}
+      </div>
+      {% endif %}
+      {% if warning %}
+      <div class="alert alert-danger" role="alert">
+        {{warning}}
+      </div>
+      {% endif %}
+      <!-- /parent -->
+      <form action="/parent" method="POST">
+        <div class="row mb-4">
+          <div class="col h4">
+            Parents Information
+          </div>
+        </div>
+
+        <div class="row mb-3">
+          <div class="col-md-6  mb-3">
+            <input type="text" name="fname" placeholder="First Name" class="form-control form-control-lg" id="name"
+              data-rule="minlen:4" data-msg="Please enter at least 4 chars" />
+          </div>
+          <div class="col-md-6">
+            <input type="text" name="lname" placeholder="Last Name" class="form-control form-control-lg" id="name"
+              data-rule="minlen:4" data-msg="Please enter at least 4 chars" />
+          </div>
+        </div>
+
+        <div class="row mb-3">
+          <div class="col-md-6  mb-3">
+            <input type="tel" name="number" placeholder="Phone Number" class="form-control form-control-lg" id="name"
+              data-rule="minlen:4" data-msg="Please enter at least 4 chars" />
+          </div>
+          <div class="col-md-6">
+            <input type="email" name="email" placeholder="Email" class="form-control form-control-lg" id="name"
+              data-rule="minlen:4" data-msg="Please enter at least 4 chars" />
+          </div>
+        </div>
+        <button type="button" id="cl" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
+          Choose location
+        </button>
+        <div class="row">
+
+          <div class="col-md-6  mb-3">
+            <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel"
+              aria-hidden="true">
+              <div class="modal-dialog modal-lg">
+                <div class="modal-content">
+                  <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">Choose location</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                  </div>
+                  <div class="modal-body">
+                    <div id="map"></div>
+                    <pre id="coordinates" class="coordinates"></pre>
+                  </div>
+                  <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                    <button type="button" class="btn btn-primary" id="choose">Choose</button>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="row my-4">
+          <div class="col h4">
+            <label for="exampleFormControlInput1">Child Info</label>
+          </div>
+        </div>
+
+        <div class="row mb-2">
+
+          <div class="col-md-6  mb-3">
+            <input type="text" name="cfname" placeholder="First Name" class="form-control form-control-lg" id="name"
+              data-rule="minlen:4" data-msg="Please enter at least 4 chars" />
+          </div>
+
+          <div class="col-md-6  mb-3">
+            <input type="text" name="clname" placeholder="Last Name" class="form-control form-control-lg" id="name"
+              data-rule="minlen:4" data-msg="Please enter at least 4 chars" />
+          </div>
+
+          <div class="col-md-2 mb-3">
+            <div class="form-group">
+              <select name="sex" class="form-control form-control-lg">
+                <option value="male">Male</option>
+                <option value="female">Female</option>
+              </select>
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md-2">
+            <div class="form-group">
+              <select name="grade_level" class="form-control form-control-lg grades">
+                <option selected="0" selected disabled hidden>Grade</option>
+                <option class="kg">KG</option>
+                <option class="primary">Primary School</option>
+                <option class="high">High School</option>
+              </select>
+            </div>
+          </div>
+          <div class="col-md-4">
+            <div class="form-group">
+              <select name="grade_level_two" class="form-control form-control-lg levels" value="0">
+                <option selected="0" selected disabled hidden>Grade Level</option>
+                <option value="2" class="da">2</option>
+                <option value="3" class="da">3</option>
+                <option value="4" class="da">4</option>
+                <option value="5" class="da">5</option>
+                <option value="6" class="da">6</option>
+                <option value="1" class="da">1</option>
+                <option value="7" class="da">7</option>
+                <option value="8" class="da">8</option>
+                <option value="9" class="da">9</option>
+                <option value="10" class="da">10</option>
+                <option value="11" class="da">11</option>
+                <option value="12" class="da">12</option>
+              </select>
+            </div>
+          </div>
+
+
+          <div class="row">
+            <div class="col-md-12">
+              <div class="form-group">
+                <select aria-valuetext="Select Subjects" name="subjects" class="selectpicker" multiple
+                  data-live-search="true">
+                  <!-- <option value="Select Subject" selected disabled hidden>Select Subject</option> -->
+                  <option value="English">English</option>
+                  <option value="Biology">Biology</option>
+                  <option value="Chemistry">Chemistry</option>
+                  <option value="Physics">Physics</option>
+                  <option value="Mathematics">Mathematics</option>
+                </select>
+              </div>
+            </div>
+          </div>
+
+        </div>
+
+
+        <div class="row">
+          <div class="col text-center">
+            <div class="text-center"><button class="btn btn-outline-info btn-lg mt-3" type="submit">Register</button>
+            </div>
+          </div>
+        </div>
+      </form>
+
+
+
+    </div>
+    </div>
+  </section>
+  <!-- REGISTRATION PAGE END -->
+
+  <!-- ABOUT SECTION START -->
+
+  <section id="about" class="about section-bg">
+    <div class="container" data-aos="fade-up">
+
+      <div class="section-title">
+        <h2>About Us</h2>
+      </div>
+
+      <div class="row content">
+        <div class="col-lg-6">
+          <p>
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et
+            dolore
+            magna aliqua.
+          </p>
+          <ul>
+            <li><i class="ri-check-double-line"></i> Ullamco laboris nisi ut aliquip ex ea commodo consequat</li>
+            <li><i class="ri-check-double-line"></i> Duis aute irure dolor in reprehenderit in voluptate velit</li>
+            <li><i class="ri-check-double-line"></i> Ullamco laboris nisi ut aliquip ex ea commodo coKGnsequat</li>
+          </ul>
+        </div>
+        <div class="col-lg-6 pt-4 pt-lg-0">
+          <p>
+            Ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate
+            velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in
+            culpa qui officia deserunt mollit anim id est laborum.
+          </p>
+          <a href="#" class="btn-learn-more">Learn More</a>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- End About Us Section -->
+
+
+
+
+
+  <!-- ======= Contact Section ======= -->
+  <section id="contact" class="contact">
+    <div class="container" data-aos="fade-up">
+
+      <div class="section-title">
+        <h2>Contact</h2>
+        <p>You can conatct us if you have any questions about the services we offer. We will review and respond to your
+          questions.
+          So do not histate to ask if there is any uncertainities.
+        </p>
+      </div>
+
+      <div class="row">
+
+        <div class="col-lg-5 d-flex align-items-stretch">
+          <div class="info">
+            <div class="address">
+              <i class="icofont-google-map"></i>
+              <h4>Location:</h4>
+              <p>Minilike</p>
+            </div>
+
+            <div class="email">
+              <i class="icofont-envelope"></i>
+              <h4>Email:</h4>
+              <p>temaribet@gmail.com</p>
+            </div>
+
+            <div class="phone">
+              <i class="icofont-phone"></i>
+              <h4>Call:</h4>
+              <p>+251912121212</p>
+            </div>
+
+          </div>
+
+        </div>
+
+        <div class="col-lg-7 mt-5 mt-lg-0 d-flex align-items-stretch">
+          <form action="forms/contact.php" method="post" role="form" class="php-email-form">
+            <div class="form-row">
+              <div class="form-group col-md-6">
+                <label for="name">Your Name</label>
+                <input type="text" name="name" class="form-control" id="name" data-rule="minlen:4"
+                  data-msg="Please enter at least 4 chars" />
+                <div class="validate"></div>
+              </div>
+              <div class="form-group col-md-6">
+                <label for="name">Your Email</label>
+                <input type="email" class="form-control" name="email" id="email" data-rule="email"
+                  data-msg="Please enter a valid email" />
+                <div class="validate"></div>
+              </div>
+            </div>
+            <div class="form-group">
+              <label for="name">Message</label>
+              <textarea class="form-control" name="message" rows="10" data-rule="required"
+                data-msg="Please write something for us" style="resize: none;"></textarea>
+              <div class="validate"></div>
+            </div>
+            <div class="mb-3">
+              <div class="loading">Loading</div>
+              <div class="error-message"></div>
+              <!-- <div class="sent-message">Your message has been sent. Thank you!</div> -->
+            </div>
+            <div class="text-center"><button type="submit">Send Message</button></div>
+          </form>
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+
+  </main>
+  <!-- End #main -->
+
+  <!-- ======= Footer ======= -->
+  <footer id="footer" class="section-bg">
+
+    <div class="footer-top">
+      <div class="container">
+        <div class="row">
+
+          <div class="col-lg-3 col-md-6 footer-contact">
+            <h3>Temaribet</h3>
+            <p>
+              Minilike street 1 <br>
+              Addis Ababa<br>
+              Ethiopia <br><br>
+              <strong>Phone:</strong> +251912121212<br>
+              <strong>Email:</strong> temaribet@example.com<br>
+            </p>
+          </div>
+
+          <div class="col-lg-3 col-md-6 footer-links">
+            <h4></h4>
+            <ul>
+              <li><i class="bx bx-chevron-right"></i> <a href="/">Home</a></li>
+              <li><i class="bx bx-chevron-right"></i> <a href="#about">About us</a></li>
+              <li><i class="bx bx-chevron-right"></i> <a href="#service">Services</a></li>
+              <li><i class="bx bx-chevron-right"></i> <a href="#register">Register</a></li>
+            </ul>
+          </div>
+
+          <div class="col-lg-3 col-md-6 footer-links">
+            <h4>Our Services</h4>
+            <ul>
+              <li><i class="bx bx-chevron-right"></i> <a href="#register">Tutoring</a></li>
+            </ul>
+          </div>
+          <div class="col-lg-3 col-md-6 footer-links">
+            <h4>Our Social Networks</h4>
+            <ul>
+              <a href="#" class="twitter"><i class="bx bxl-twitter"></i></a>
+              <a href="#" class="facebook"><i class="bx bxl-facebook"></i></a>
+              <a href="#" class="instagram"><i class="bx bxl-instagram"></i></a>
+              <a href="#" class="google-plus"><i class="bx bxl-skype"></i></a>
+              <a href="#" class="linkedin"><i class="bx bxl-linkedin"></i></a>
+            </ul>
+          </div>
+        </div>
+
+      </div>
+    </div>
+    </div>
+
+    <div class="d-flex justify-content-center container footer-bottom clearfix">
+      <div class="copyright">
+        &copy; Copyright <strong><span>Temaribet</span></strong>. All Rights Reserved
+      </div>
+      <div class="credits">
+      </div>
+    </div>
+  </footer><!-- End Footer -->
+
+  <div id="preloader"></div>
+
+  <!-- Vendor JS Files -->
+
+  <script src="{{ url_for('static', filename='vendor/jquery/jquery.min.js')}}"></script>
+  <script src="{{ url_for('static', filename='vendor/bootstrap/js/bootstrap.bundle.min.js')}}"></script>
+  <script src="{{ url_for('static', filename='vendor/jquery.easing/jquery.easing.min.js')}}"></script>
+  <script src="https://code.iconify.design/1/1.0.7/iconify.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
+
+
+  <!-- Template Main JS File -->
+  <script src="{{ url_for('static', filename='js/main.js')}}"></script>
+
+  <script>
+    $(document).ready(function () {
+      $(".mul-select").select2({
+        value: "Select Subjects",
+        placeholder: "Select Subject", //placeholder
+        tags: true,
+        tokenSeparators: ['/', ',', ';', " "]
+      });
+    })
+  </script>
+  <script src="https://api.mapbox.com/mapbox-gl-js/v2.2.0/mapbox-gl.js"></script>
+
+  <script>
+    $(document).ready(function () {
+      $(".mul-select").select2({
+        placeholder: "Select Subject", //placeholder
+        tags: true,
+        tokenSeparators: ['/', ',', ';', " "]
+      });
+    })
+
+    mapboxgl.accessToken =
+      'pk.eyJ1IjoieW9uaW1lcmtlYnUiLCJhIjoiY2tsM2dsYmsxMW1lNTJzcW8ybDM0eGtnbCJ9._Gb2Fd84O3SO2-LgHIICpw';
+
+    var coordinates = document.getElementById('coordinates');
+    var map = new mapboxgl.Map({
+      container: 'map',
+      style: 'mapbox://styles/mapbox/streets-v11',
+      center: [38.7679, 8.99],
+      zoom: 10
+    });
+
+    $('#cl').on('shown.bs.modal', function () {
+      map.invalidateSize();
+    });
+
+    var marker = new mapboxgl.Marker({
+        draggable: true
+      })
+      .setLngLat([38.7679, 8.99])
+      .addTo(map);
+
+    function onDragEnd() {
+      var lngLat = marker.getLngLat();
+      coordinates.style.display = 'block';
+      coordinates.innerHTML =
+        lngLat.lng + ', ' + lngLat.lat;
+    }
+
+    marker.on('dragend', onDragEnd);
+  </script>
+</body>
+
+</html>
