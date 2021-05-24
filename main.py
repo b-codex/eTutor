@@ -7,7 +7,7 @@ from datetime import timedelta
 from PIL import Image
 # from geopy.distance import geodesic
 from operator import itemgetter
-# from flask_mobility import Mobility
+from flask_mobility import Mobility
 
 
 firebaseConfig = {
@@ -35,7 +35,7 @@ person = {"is_logged_in": False, "is_verified": False,
           "name": "", "email": "", "number": "", "uid": "", "id": "", "role": ""}
 
 app = Flask(__name__)
-# Mobility(app)
+Mobility(app)
 app.secret_key = "__temaribetsessionkey__"  # key for session
 app.permanent_session_lifetime = timedelta(days=7)
 
