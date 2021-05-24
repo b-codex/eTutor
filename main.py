@@ -244,7 +244,7 @@ def tutor():
         }
 
         # write on DB
-        db.collection('tutor_form').document(lenz + 1).set(doc)
+        db.collection('tutor_form').document(str(lenz + 1)).set(doc)
         success = "Everything went perfect!, We will contact you using your email address."
         return render_template("tutor.html", success=success)
 

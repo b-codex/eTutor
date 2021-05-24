@@ -344,7 +344,8 @@
               {% if  request.MOBILE %}
               <div class="col-md-8  align-self-center mb-1">
                 <p></p>
-                <input readonly value="Please turn on location." id="demo" class="form-control form-control-lg" />
+                <input readonly name="address" value="Please turn on location." id="demo"
+                  class="form-control form-control-lg" />
               </div>
               {% else %}
 
@@ -446,8 +447,8 @@
     }
 
     function showPosition(position) {
-      x.value = "Your current location: " + position.coords.latitude +
-        " " + position.coords.longitude;
+      x.value = position.coords.latitude +
+        "," + position.coords.longitude;
     }
     getLocation();
   </script>
@@ -484,7 +485,7 @@
       coordinates.innerHTML =
         lngLat.lng + ', ' + lngLat.lat;
       coordinate.value =
-        lngLat.lng + ', ' + lngLat.lat;
+        lngLat.lng + ',' + lngLat.lat;
     }
 
     marker.on('dragend', onDragEnd);
